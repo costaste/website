@@ -1,0 +1,13 @@
+import React, { Component } from 'react';
+
+class ErrorPage extends Component {
+  render() {
+    return (
+      <div>
+        Oops... We couldn't find that page for you.
+      </div>
+    )
+  }
+}
+
+export default ErrorPage;
