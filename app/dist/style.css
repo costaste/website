@@ -1,3 +1,8 @@
+body {
+    /* TODO acutally use bkgd color */
+    background-color: rgb(71, 57, 85);
+}
+
 header {
     display: inline-block;
     background-color: #333333;
@@ -16,6 +21,17 @@ header {
     display: inline-block;
     padding-left: 35px;
     padding-top: 15px;
+    padding-right: 35px;
+    padding-bottom: 15px;
+}
+
+.navButton-selected {
+    display: inline-block;
+    padding-left: 35px;
+    padding-top: 15px;
+    padding-right: 35px;
+    padding-bottom: 15px;
+    background-color: aqua;
 }
 
 footer {
