@@ -7,6 +7,7 @@ header {
     display: inline-block;
     background-color: #333333;
     width: 100%;
+    min-width: 475px;
     height: 50px;
     color: white;
 }
@@ -31,7 +32,7 @@ header {
     padding-top: 15px;
     padding-right: 35px;
     padding-bottom: 15px;
-    background-color: aqua;
+    background-color: white;
 }
 
 footer {
@@ -40,4 +41,26 @@ footer {
     height: 50px;
     background-color: black;
     color: white;
+}
+
+.primaryContainer {
+    text-align: center;
+}
+
+.table {
+    text-align: left;
+    font-size: 20px;
+    position: relative;
+    left: 20%;
+}
+
+.cell {
+    padding: 10px;
+    outline: 2px solid black;
+}
+
+.cellHeader {
+    font-weight: bold;
+    padding: 10px;
+    outline: 2px solid black;
 }

@@ -28,10 +28,10 @@ class NavBar extends Component {
 
     render() {
         const navButtons = this.getSelected();
-        
+
         return (
             <header>
-                <ul id="headerButtons">
+                <ul id="headerButtons" class='navbar'>
                     <li className={navButtons[0]}><Link to="">Home</Link></li>
                     <li className={navButtons[1]}><Link to="/projects">Projects</Link></li>
                     <li className={navButtons[2]}><Link to="/classes">Classes</Link></li>

@@ -1,0 +1,11 @@
+- Populate all pages
+- Projects page:
+    > Have a gif of each project in action
+    > link to the github repo if possible
+    > eventually make expandable drawer for each project's details
+    > aspirations for future additions?
+- Add interests page
+- Find hosting
+- convert style.css to less or scss
+    > separate different components into different stylesheets
+- refactor dist directory (should probably have all files in dist be untracked by git)
