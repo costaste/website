@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Table from '../TableComponent/Table';
-import { projectRows } from '../TableComponent/tableUtils';
+import { projectMatrix } from '../TableComponent/tableConstants';
+
 
 class ProjectsPage extends Component {
     render() {
@@ -8,7 +9,7 @@ class ProjectsPage extends Component {
           <div class='primaryContainer'>
             <h3>Projects</h3>
             <br/>
-            <Table getRows={projectRows()}/>
+            <Table tableType='projTable' data={projectMatrix}/>
           </div>
         )
     }

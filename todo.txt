@@ -1,4 +1,3 @@
-- Populate all pages
 - Projects page:
     > Have a gif of each project in action
     > link to the github repo if possible
@@ -6,6 +5,5 @@
     > aspirations for future additions?
 - Add interests page
 - Find hosting
-- convert style.css to less or scss
-    > separate different components into different stylesheets
+- separate different component styles into different stylesheets
 - refactor dist directory (should probably have all files in dist be untracked by git)
