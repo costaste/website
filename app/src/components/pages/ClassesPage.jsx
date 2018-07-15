@@ -8,7 +8,7 @@ class ClassesPage extends Component {
           <div class='primaryContainer'>
             <h3>Classes</h3>
             <br/>
-            <Table tableType='classTable' data={classMatrix}/>
+            <Table tableType='classTable' isExpandable={false} data={classMatrix}/>
           </div>
         )
     }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
+import DetailRow from './DetailRow';
 
 class Table extends Component {
 
@@ -27,9 +29,9 @@ class Table extends Component {
         // TODO use 'th' instead of 'td' for header row?
         cells.push(<td key={col} id={cellID} className={cellType}>{matrix[rowNum][col]}</td>);
       }
-      rows.push(<tr key={rowNum} id={rowID} onClick={this.handleRowClick}>{cells}</tr>);
+      rows.push(<tr key={rowNum} id={rowID} onClick={() => this.handleRowClick(rowID)}>{cells}</tr>);
       if (this.isRowExpanded(rowID)) {
-          rows.push(<tr id={rowID + '-expanded'}>cell</tr>);
+          rows.push(this.getDetailsRow(rowID));
       }
     }
 
@@ -37,15 +39,25 @@ class Table extends Component {
   }
 
   handleRowClick(rowId) {
-    const prevState = this.state;
-    let currExpanded = prevState.expandedRowIds;
-    const alreadyExpanded = currExpanded.includes(rowId);
-    const newState = alreadyExpanded ? prevState : currExpanded.push(rowId);
-    this.setState({expandedRowIds: newState});
+    const { isExpandable } = this.props;
+    if (rowId === 'row0' || !isExpandable) return;
+    if (!this.isRowExpanded(rowId)) {
+      this.state.expandedRowIds.push(rowId);
+      this.setState({expandedRowIds: this.state.expandedRowIds});
+    } else {
+      this.setState({ expandedRowIds: this.state.expandedRowIds.filter(e => e !== rowId) });
+    }
+    console.log(this.state);
   }
 
   isRowExpanded(rowId) {
-    return this.state.expandedRowIds.includes(rowId);
+    return _.includes(this.state.expandedRowIds, rowId);
+  }
+
+  getDetailsRow(rowId) {
+    let proj = '';
+    rowId === 'row1' ? proj = 'pipes' : proj = '';
+    return <DetailRow project={proj} />
   }
   
   render() {

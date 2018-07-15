@@ -42,21 +42,27 @@ footer {
 	text-align: center;
 }
 
-.projTable {
+.table {
 	text-align: left;
-	font-size: 20px;
 	position: relative;
-	left: 25%;
-	right: 25%;
-}
-.classTable {
-	text-align: left;
-	font-size: 16px;
-	position: relative;
-	left: 10%;
+	/* table-layout: fixed; */
 	right: 10%;
 	max-width: 80%;
+}
+
+.projTable {
+	&:extend(.table);
+	font-size: 20px;
+	left: 15%;
+}
+.classTable {
+	&:extend(.table);
+	font-size: 16px;
 	margin-bottom: 5%;
+	left: 10%;
+}
+.detailRow {
+	outline: 2px solid black;
 }
 .cell {
 	padding: 10px;
@@ -66,3 +72,4 @@ footer {
     &:extend(.cell);
 	font-weight: bold;
 }
+

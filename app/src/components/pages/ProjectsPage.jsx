@@ -9,7 +9,7 @@ class ProjectsPage extends Component {
           <div class='primaryContainer'>
             <h3>Projects</h3>
             <br/>
-            <Table tableType='projTable' data={projectMatrix}/>
+            <Table tableType='projTable' isExpandable={true} data={projectMatrix}/>
           </div>
         )
     }

@@ -22,6 +22,10 @@ module.exports = {
         loader: 'url-loader?limit=100000&minetype=image/png'
       },
       {
+        test: /\.gif$/,
+        loader: 'url-loader?limit=100000&minetype=image/gif'
+      },
+      {
         test: /\.jpg/,
         loader: 'file-loader'
       },
