@@ -9,7 +9,7 @@ body {
 }
 
 .navText-selected {
-    color: blue;
+    color: black;
 }
 
 header {
@@ -44,7 +44,8 @@ footer {
     position: fixed;
     bottom: 0px;
     width: 100%;
-    background-color: @bkgd-color;
+    background-color: lightgrey;
+    max-height: 45px;
 }
 
 .footerList {
@@ -57,6 +58,8 @@ footer {
 .footerListElem {
     width: 25px;
     height: 25px;
+    position: relative;
+    bottom: 6px;
 }
 
 .primaryContainer {
@@ -73,7 +76,7 @@ footer {
 	position: relative;
 	right: 10%;
     max-width: 80%;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
 }
 
 .projTable {
@@ -89,9 +92,19 @@ footer {
 .detailRow {
 	outline: 2px solid black;
 }
+
+.detailList {
+    font-size: 16px;
+}
+
+.detailCell {
+    display: flex;
+}
+
 .cell {
 	padding: 10px;
-	outline: 2px solid black;
+    outline: 2px solid black;
+    max-width: 600px;
 }
 .cellHeader {
     &:extend(.cell);
@@ -106,7 +119,8 @@ footer {
 }
 
 .projectGif {
-    height: 250px;
+    // height: 250px;
+    max-width: 250px;
 }
 
 .pdfViewer {

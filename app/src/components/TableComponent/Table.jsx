@@ -25,6 +25,7 @@ class Table extends Component {
       let cells = [];
       for (let col = 0; col < totalCols; col++) {
         let cellID = `cell${rowNum}-${col}`;
+        // TODO make class table description cells max-width ~1200px
         let cellType = (rowNum === 0 ? 'cellHeader' : 'cell');
         // TODO use 'th' instead of 'td' for header row?
         cells.push(<td key={col} id={cellID} className={cellType}>{matrix[rowNum][col]}</td>);
@@ -45,7 +46,7 @@ class Table extends Component {
     if (!this.isRowExpanded(rowId)) {
       // Add the row to the list of already expanded rows
       this.state.expandedRowIds.push(rowId);
-      this.setState({expandedRowIds: this.state.expandedRowIds});
+      this.setState({ expandedRowIds: this.state.expandedRowIds });
     } else {
       // Remove the newly collapsed row from the list by filtering against it
       this.setState({ expandedRowIds: this.state.expandedRowIds.filter(e => e !== rowId) });
@@ -58,9 +59,19 @@ class Table extends Component {
   }
 
   getDetailsRow(rowId) {
-    // TODO use tableConstants to get project
+    // TODO use this.props/tableConstants to get project
     let proj = '';
-    rowId === 'row1' ? proj = 'pipes' : proj = '';
+    switch (rowId) {
+      case 'row1':
+        proj = 'pipes';
+        break;
+      case 'row2':
+        proj = 'music';
+        break;
+      case 'row3':
+        proj = 'nush';
+        break;
+    }
     return <DetailRow project={proj} rowId={rowId} />
   }
   
