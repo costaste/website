@@ -8,6 +8,8 @@ class ClassesPage extends Component {
           <div class='primaryContainer'>
             <h3>Classes</h3>
             <br/>
+            <h6>Descriptions taken from Northeastern University class listing.</h6>
+            <br/>
             <Table tableType='classTable' isExpandable={false} data={classMatrix}/>
           </div>
         )

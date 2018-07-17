@@ -40,11 +40,14 @@ class Table extends Component {
 
   handleRowClick(rowId) {
     const { isExpandable } = this.props;
+    // Don't expand headers or rows from static tables
     if (rowId === 'row0' || !isExpandable) return;
     if (!this.isRowExpanded(rowId)) {
+      // Add the row to the list of already expanded rows
       this.state.expandedRowIds.push(rowId);
       this.setState({expandedRowIds: this.state.expandedRowIds});
     } else {
+      // Remove the newly collapsed row from the list by filtering against it
       this.setState({ expandedRowIds: this.state.expandedRowIds.filter(e => e !== rowId) });
     }
     console.log(this.state);
@@ -55,9 +58,10 @@ class Table extends Component {
   }
 
   getDetailsRow(rowId) {
+    // TODO use tableConstants to get project
     let proj = '';
     rowId === 'row1' ? proj = 'pipes' : proj = '';
-    return <DetailRow project={proj} />
+    return <DetailRow project={proj} rowId={rowId} />
   }
   
   render() {

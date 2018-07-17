@@ -7,6 +7,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import ClassesPage from './pages/ClassesPage';
 import ResumePage from './pages/ResumePage';
 import ErrorPage from './pages/ErrorPage';
+import Footer from './footer/Footer';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             <Route name="resume" exact path="/resume" component={ResumePage} />
             <Route name="error" component={ErrorPage} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     )

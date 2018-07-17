@@ -1,5 +1,15 @@
+@bkgd-color: white;
+
 body {
 	background-color: #473955;
+}
+
+.navText {
+    color: white;
+}
+
+.navText-selected {
+    color: blue;
 }
 
 header {
@@ -8,7 +18,7 @@ header {
 	width: 100%;
 	min-width: 475px;
 	height: 50px;
-	color: white;
+	color: @bkgd-color;
 }
 
 #headerButtons {
@@ -27,27 +37,43 @@ header {
 
 .navButton-selected {
 	&:extend(.navButton);
-	background-color: white;
+	background-color: @bkgd-color;
 }
 
 footer {
-	display: block;
-	width: 100%;
-	height: 50px;
-	background-color: black;
-	color: white;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: @bkgd-color;
+}
+
+.footerList {
+    list-style-type: none;
+    position: relative;
+    margin: auto;
+    // width: 13%; doesn't work for all display sizes
+}
+
+.footerListElem {
+    width: 25px;
+    height: 25px;
 }
 
 .primaryContainer {
 	text-align: center;
 }
 
+.list {
+    font-size: 16px;
+    list-style: none;
+}
+
 .table {
 	text-align: left;
 	position: relative;
-	/* table-layout: fixed; */
 	right: 10%;
-	max-width: 80%;
+    max-width: 80%;
+    margin-bottom: 5%;
 }
 
 .projTable {
@@ -58,7 +84,6 @@ footer {
 .classTable {
 	&:extend(.table);
 	font-size: 16px;
-	margin-bottom: 5%;
 	left: 10%;
 }
 .detailRow {
@@ -73,3 +98,17 @@ footer {
 	font-weight: bold;
 }
 
+.gitLinkTable {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    left: 25%;
+}
+
+.projectGif {
+    height: 250px;
+}
+
+.pdfViewer {
+    margin-bottom: 10%;
+}

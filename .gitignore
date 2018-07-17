@@ -4,3 +4,4 @@ bundle.js
 **/.DS_Store
 app/dist/*.jpg
 app/dist/*.js
+app/dist/*.gif

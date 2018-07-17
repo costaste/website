@@ -4,7 +4,8 @@ class ErrorPage extends Component {
   render() {
     return (
       <div class='primaryContainer'>
-        Oops... We couldn't find that page for you.
+        ¯\_(ツ)_/¯ 
+        Oops... Couldn't find that page for you.
       </div>
     )
   }
