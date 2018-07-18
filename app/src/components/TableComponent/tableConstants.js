@@ -5,7 +5,7 @@
 
 // Project Table ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-const projectHeaders = ['Project Name', 'Language', 'Description', 'More Info'];
+const projectHeaders = ['Project Name', 'Language', 'Description', ''];
 
 const pipe = ['Pipe Game', 'C++', 'A 2D time-based puzzle game'];
 const music = ['Music Editor', 'Java', 'Program to create, load, display, and play proprietary music files'];

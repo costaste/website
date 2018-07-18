@@ -14,6 +14,7 @@ class Table extends Component {
 
   // Table for ProjectsPage
   createRows(matrix) {
+    const { isExpandable } = this.props;
 
     let totalRows = matrix.length;
     let totalCols = matrix[0].length;
@@ -30,7 +31,22 @@ class Table extends Component {
         // TODO use 'th' instead of 'td' for header row?
         cells.push(<td key={col} id={cellID} className={cellType}>{matrix[rowNum][col]}</td>);
       }
-      rows.push(<tr key={rowNum} id={rowID} onClick={() => this.handleRowClick(rowID)}>{cells}</tr>);
+
+      // All of this is only relevant to expandable tables...should prob refactor at some pt
+      if (isExpandable && rowNum !== 0 && this.isRowExpanded(rowID)) {
+
+        // plus/minus for expand/collapse
+        const icon = <img src={require('../../../assets/images/minus.png')} onClick={() => this.handleRowClick(rowID)} className='drawerButton' />;
+        cells[totalCols - 1] = (<td id={rowID + '-collapse-button'} className='cell'>{icon}</td>);
+
+      } else if (isExpandable && rowNum !== 0) {
+
+        const icon = <img src={require('../../../assets/images/plus.png')} onClick={() => this.handleRowClick(rowID)} className='drawerButton' />;
+        cells[totalCols - 1] = (<td id={rowID + '-expand-button'} className='cell'>{icon}</td>);
+
+      }
+
+      rows.push(<tr key={rowNum} id={rowID}>{cells}</tr>);
       if (this.isRowExpanded(rowID)) {
           rows.push(this.getDetailsRow(rowID));
       }
