@@ -39,7 +39,7 @@ const pipeDetailedInfo = {
 const musicDetailedInfo = {
     tech: musicTech,
     details: musicDetails,
-    gif: require('../../../assets/images/bb8.gif'),
+    gif: require('../../../assets/images/music.gif'),
     gitUrl: 'https://github.com/costaste/Unix_Shell',
 }
 
