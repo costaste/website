@@ -6,7 +6,7 @@ class Table extends Component {
 
   constructor(props) {
     super(props);
-    this.handleRowClick = this.handleRowClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       expandedRowIds: []
     }
@@ -29,6 +29,8 @@ class Table extends Component {
         // TODO make class table description cells max-width ~1200px
         let cellType = (rowNum === 0 ? 'cellHeader' : 'cell');
         // TODO use 'th' instead of 'td' for header row?
+        rowNum === 0 ? 
+        cells.push(<td key={col} id={cellID} className={cellType} colSpan={matrix[rowNum][col].span}>{matrix[rowNum][col].value}</td>) :
         cells.push(<td key={col} id={cellID} className={cellType}>{matrix[rowNum][col]}</td>);
       }
 
@@ -36,26 +38,28 @@ class Table extends Component {
       if (isExpandable && rowNum !== 0 && this.isRowExpanded(rowID)) {
 
         // plus/minus for expand/collapse
-        const icon = <img src={require('../../../assets/images/minus.png')} onClick={() => this.handleRowClick(rowID)} className='drawerButton' />;
-        cells[totalCols - 1] = (<td id={rowID + '-collapse-button'} className='cell'>{icon}</td>);
+        const icon = <img title='Click to collapse' src={require('../../../assets/images/minus.png')} onClick={() => this.handleClick(rowID)} className='drawerButton' />;
+        cells.push(<td id={rowID + '-collapse-button'} className='buttonCell'>{icon}</td>);
 
       } else if (isExpandable && rowNum !== 0) {
 
-        const icon = <img src={require('../../../assets/images/plus.png')} onClick={() => this.handleRowClick(rowID)} className='drawerButton' />;
-        cells[totalCols - 1] = (<td id={rowID + '-expand-button'} className='cell'>{icon}</td>);
+        const icon = <img title='Click to expand' src={require('../../../assets/images/plus.png')} onClick={() => this.handleClick(rowID)} className='drawerButton' />;
+        cells.push(<td id={rowID + '-expand-button'} className='buttonCell'>{icon}</td>);
 
       }
 
       rows.push(<tr key={rowNum} id={rowID}>{cells}</tr>);
-      if (this.isRowExpanded(rowID)) {
-          rows.push(this.getDetailsRow(rowID));
+      if (isExpandable && rowID !== 'row0') {
+        const isExpanded = this.isRowExpanded(rowID);
+        const detailRow = this.getDetailsRow(rowID, isExpanded);
+        rows.push(detailRow);
       }
     }
 
     return rows;
   }
 
-  handleRowClick(rowId) {
+  handleClick(rowId) {
     const { isExpandable } = this.props;
     // Don't expand headers or rows from static tables
     if (rowId === 'row0' || !isExpandable) return;
@@ -74,7 +78,7 @@ class Table extends Component {
     return _.includes(this.state.expandedRowIds, rowId);
   }
 
-  getDetailsRow(rowId) {
+  getDetailsRow(rowId, isExpanded) {
     // TODO use this.props/tableConstants to get project
     let proj = '';
     switch (rowId) {
@@ -88,7 +92,7 @@ class Table extends Component {
         proj = 'nush';
         break;
     }
-    return <DetailRow project={proj} rowId={rowId} />
+    return <DetailRow project={proj} rowId={rowId} shouldDisplay={isExpanded} />
   }
   
   render() {
@@ -97,15 +101,15 @@ class Table extends Component {
 
     return (
       <div className={tableType}>
-        <div className="row">
-          <div className="col s12 board">
+        {/* <div className="row">
+          <div className="col s12 board"> */}
             <table id="simple-board">
               <tbody>
                 {allRows}
               </tbody>
             </table>
-          </div>
-        </div>
+          {/* </div>
+        </div> */}
       </div>        
     )
   }

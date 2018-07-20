@@ -31,25 +31,35 @@ class DetailRow extends Component {
       detailList.push(<li>{data.details[i]}</li>);
     }
 
-    return <div className='detailCell'><ul className='detailList'>{techList}</ul><ul className='detailList'>{detailList}</ul></div>;
+  return (
+  <div className='detailCell'>
+    <div className='detailDiv'>
+      <h3>Technologies</h3>
+      <ul className='detailList'>{techList}</ul>
+    </div>
+    <div className='detailDiv'>
+      <h3>Details</h3>
+      <ul className='detailList'>{detailList}</ul>
+    </div>
+  </div>);
   }
 
   render() {
-    const { project, rowId } = this.props;
+    const { project, rowId, shouldDisplay } = this.props;
     const data = this.getData(project);
     let cells = [];
 
     // Include a gif of project in action
     const gif = <img src={data.gif} className='projectGif'/>;
-    const gifCell = <td colSpan='2'>{gif}</td>;
+    const gifCell = <td colSpan='2' className='buttonCell'>{gif}</td>;
 
     // Add bulleted info about projects
     const projInfo = this.buildLists(data);
     const infoCell = <td className='cell'>{projInfo}</td>
 
     // Add link to repo for project
-    const gitLink = <td className='cell'>
-      <img src={require('../../../assets/images/github_icon.png')} onClick={() => window.open(data.gitUrl)} className='gitLinkTable' />
+    const gitLink = <td className='buttonCell'>
+      <img title='View on GitHub' src={require('../../../assets/images/github_icon.png')} onClick={() => window.open(data.gitUrl)} className='gitLinkTable' />
     </td>;
 
     // Add td elems to cell list and build row
@@ -57,7 +67,9 @@ class DetailRow extends Component {
     cells.push(infoCell);
     cells.push(gitLink);
 
-    return <tr id={rowId + '-details'} className='detailRow'>{cells}</tr>
+    let styleClass;
+    shouldDisplay ? styleClass = 'detailRow' : styleClass = 'detailRow-hidden';
+    return <tr id={rowId + '-details'} className={styleClass}>{cells}</tr>
   }
 }
 
