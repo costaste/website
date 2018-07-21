@@ -47,7 +47,7 @@ const musicDetailedInfo = {
 const nushDetailedInfo = {
     tech: nushTech,
     details: nushDetails,
-    gif: require('../../../assets/images/bb8.gif'),
+    gif: require('../../../assets/images/nush.gif'),
     gitUrl: 'https://github.com/costaste/Unix_Shell',
 }
 
