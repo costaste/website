@@ -1,7 +1,6 @@
 - Projects page:
     > Have a gif of each project in action
-    > link to the github repo if possible
-    > eventually make expandable drawer for each project's details
+    > Put all projects on public GitHub
     > aspirations for future additions?
 - Add interests page
 - Find hosting

@@ -1,28 +1,75 @@
 import React, { Component } from 'react';
+import { pipeDetailedInfo, musicDetailedInfo, nushDetailedInfo } from './tableConstants';
 
 class DetailRow extends Component {
 
-  render() {
-    const { project, rowId } = this.props;
-    let content;
-    if (project === 'pipes') {
-      let content = <img src={require('../../../assets/images/pipes.gif')} />;
-    } else {
-      let content = <img src={require('../../../assets/images/bb8.gif')} />;
+  // Helper function to get correct details by project
+  getData(project) {
+    switch (project) {
+      case 'pipes':
+        return pipeDetailedInfo;
+        break;
+      case 'music':
+        return musicDetailedInfo;
+        break;
+      case 'nush':
+        return nushDetailedInfo;
+        break;
+      default: 
+        return null;
     }
-    // TODO use real row id
-    // let rowId = 'detailrow';
-    project === 'pipes' ? 
-    content = <img src={require('../../../assets/images/pipes.gif')} className='projectGif'/> : 
-    content = <img src={require('../../../assets/images/bb8.gif')} className='projectGif'/>;
+  }
 
+  buildLists(data) {
+    const techList = [];
+    const detailList = [];
+
+    for (var i = 0; i < data.tech.length; i++) {
+      techList.push(<li>{data.tech[i]}</li>);
+    }
+    for (var i = 0; i < data.details.length; i++) {
+      detailList.push(<li>{data.details[i]}</li>);
+    }
+
+  return (
+  <div className='detailCell'>
+    <div className='detailDiv'>
+      <h3>Technologies</h3>
+      <ul className='detailList'>{techList}</ul>
+    </div>
+    <div className='detailDiv'>
+      <h3>Details</h3>
+      <ul className='detailList'>{detailList}</ul>
+    </div>
+  </div>);
+  }
+
+  render() {
+    const { project, rowId, shouldDisplay } = this.props;
+    const data = this.getData(project);
     let cells = [];
-    let gitLink = <td className='cell'><img src={require('../../../assets/images/github_icon.png')} onClick={() => window.open('https://github.com/costaste/Unix_Shell')} className='gitLinkTable' /></td>;
-    let gif = <td colSpan='3'>{content}</td>;
-    cells.push(gif);
+
+    // Include a gif of project in action
+    const gif = <img src={data.gif} className='projectGif'/>;
+    const gifCell = <td colSpan='2' className='buttonCell'>{gif}</td>;
+
+    // Add bulleted info about projects
+    const projInfo = this.buildLists(data);
+    const infoCell = <td className='cell'>{projInfo}</td>
+
+    // Add link to repo for project
+    const gitLink = <td className='buttonCell'>
+      <img title='View on GitHub' src={require('../../../assets/images/github_icon.png')} onClick={() => window.open(data.gitUrl)} className='gitLinkTable' />
+    </td>;
+
+    // Add td elems to cell list and build row
+    cells.push(gifCell);
+    cells.push(infoCell);
     cells.push(gitLink);
 
-    return <tr id={rowId + '-details'} className='detailRow'>{cells}</tr>
+    let styleClass;
+    shouldDisplay ? styleClass = 'detailRow' : styleClass = 'detailRow-hidden';
+    return <tr id={rowId + '-details'} className={styleClass}>{cells}</tr>
   }
 }
 
