@@ -94,6 +94,9 @@ class Table extends Component {
       case 'row4':
         proj = 'tetris';
         break;
+      case 'row5':
+	proj = 'web';
+        break;
     }
     return <DetailRow project={proj} rowId={rowId} shouldDisplay={isExpanded} />
   }

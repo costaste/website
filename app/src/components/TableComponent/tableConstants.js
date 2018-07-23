@@ -12,6 +12,7 @@ const pipe = ['Pipe Game', 'C++', 'A 2D time-based puzzle game'];
 const music = ['Music Editor', 'Java', 'Program to create, load, display, and play proprietary music files'];
 const nush = ['Nush Shell', 'C', 'A simple shell that can execute commands utilizing parallel programming'];
 const tetris = ['Racket Tetris', 'Racket', 'A Tetris game made with the 2htdp library'];
+const web = ['Website', 'JavaScript/React', 'You\'re looking at it!'];
 
 const projectMatrix = [
     projectHeaders,
@@ -19,6 +20,7 @@ const projectMatrix = [
     music,
     nush,
     tetris,
+    web,
 ];
 
 // Project Details ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,11 +37,14 @@ const nushDetails = ['Ability to read bash script from file', 'Runs all simple o
 const tetrisTech = ['Written in Racket language (Lisp/Scheme dialect)', 'Uses 2htdp library to create visual elements', 'Uses big-bang and on-tick functions to step through states of the world object'];
 const tetrisDetails = ['First major project at university', 'Uses lambda functions', 'Check-expect testing suite for all world states including all edge cases'];
 
+const webTech = ['Used React JavaScript framework to create components such for tables, pages, header and footer', 'React-router and express'];
+const webDetails = ['My first website!', 'Created in my free time using skills I learned on the job at my first co-op'];
+
 const pipeDetailedInfo = {
     tech: pipeTech,
     details: pipeDetails,
     gif: require('../../../assets/images/pipes.gif'),
-    gitUrl: 'https://github.com/costaste/Unix_Shell',
+    gitUrl: 'https://github.com/costaste/Pipe_Game',
 }
 
 const musicDetailedInfo = {
@@ -60,7 +65,14 @@ const tetrisDetailedInfo = {
     tech: tetrisTech,
     details: tetrisDetails,
     gif: require('../../../assets/images/tetris.gif'),
-    gitUrl: 'https://github.com/costaste/Unix_Shell',
+    gitUrl: 'https://github.com/costaste/Racket_Tetris',
+}
+
+const webDetailedInfo = {
+    tech: webTech,
+    details: webDetails,
+    gif: require('../../../assets/images/web.gif'),
+    gitUrl: 'https://github.com/costaste/website',
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -91,4 +103,4 @@ const classMatrix = [
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-export { projectMatrix, classMatrix, pipeDetailedInfo, musicDetailedInfo, nushDetailedInfo, tetrisDetailedInfo };
+export { projectMatrix, classMatrix, pipeDetailedInfo, musicDetailedInfo, nushDetailedInfo, tetrisDetailedInfo, webDetailedInfo };
