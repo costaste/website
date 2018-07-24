@@ -48,7 +48,7 @@ class Table extends Component {
 
       }
 
-      rows.push(<tr key={rowNum} id={rowID}>{cells}</tr>);
+      rows.push(<tr className='tableRow' key={rowNum} id={rowID}>{cells}</tr>);
       if (isExpandable && rowID !== 'row0') {
         const isExpanded = this.isRowExpanded(rowID);
         const detailRow = this.getDetailsRow(rowID, isExpanded);
