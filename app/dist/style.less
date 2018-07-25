@@ -1,16 +1,25 @@
 // @bkgd-color: white;
-// @bkgd-color: #7EA6D7;
-// @bkgd-color: #9BBADE;
-@bkgd-color: #BCDBFF;
+// @bkgd-color: #473955; //purple-y
+// @bkgd-color: #7EA6D7; //blue
+// @bkgd-color: #9BBADE; //lighter blue
+// @bkgd-color: #BCDBFF; //lightest blue
+// @bkgd-color: #EFF0F1; //off-white
+@bkgd-color: #DBDFE3; //darker off-white
+
+@table-border-color: black;
+
+@header-background-color: #333333;
+@header-color: wheat;
+
+@card-effect: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 body {
-    // background-color: #473955 !important;
     background-color: @bkgd-color !important;
     font-family: Roboto !important;
 }
 
 .navText {
-    color: wheat;
+    color: @header-color;
 }
 
 .navText-selected {
@@ -22,11 +31,11 @@ header {
     position: fixed;
     top: 0;
     z-index: 10;
-	background-color: #333333;
+	background-color: @header-background-color;
 	width: 100%;
 	min-width: 475px;
 	height: 50px;
-	color: @bkgd-color;
+    color: @bkgd-color;
 }
 
 #headerButtons {
@@ -52,11 +61,9 @@ footer {
     position: fixed;
     bottom: 0px;
     width: 100%;
-    background-color: lightgrey;
-    // Cool gradient backgrounds to consider over lightgrey flat
-    // background: linear-gradient(#bcdcff, lightgrey);
-    // background: linear-gradient(transparent, lightgrey, grey)
+    background-color: wheat;
     max-height: 45px;
+    box-shadow: 0px -10px 35px grey;
 }
 
 .footerList {
@@ -78,6 +85,12 @@ footer {
     padding-top: 9%;
 }
 
+.profileImg {
+    width: 250px;
+    border-radius: 25px;
+    box-shadow: @card-effect;
+}
+
 .list {
     font-size: 16px;
     list-style: none;
@@ -87,6 +100,7 @@ footer {
 
 table {
     width: 100%;
+    box-shadow: @card-effect;
 }
 
 .table {
@@ -96,21 +110,18 @@ table {
     margin-bottom: 10%;
     margin-left: auto;
     margin-right: auto;
-    // margin: auto;
 }
 
 .projTable {
 	&:extend(.table);
     font-size: 20px;
-    // width: 1280px;
 }
 .classTable {
 	&:extend(.table);
 	font-size: 16px;
-	// left: 10%;
 }
 .detailRow {
-    border: 1px solid black;
+    border: 1px solid @table-border-color;
     background-color: #bfc5cb;
 }
 
@@ -138,7 +149,7 @@ table {
 
 .cell {
 	padding: 10px;
-    border: 1px solid black;
+    border: 1px solid @table-border-color;
     max-width: 1000px;
     max-width: inherit;
     max-height: inherit;
@@ -146,9 +157,8 @@ table {
 .cellHeader {
     &:extend(.cell);
     font-weight: bold;
-    background-color: #333;
-    color: wheat;
-    // background-color: royalblue;
+    background-color: @header-background-color;
+    color: @header-color;
 }
 
 .buttonCell {
@@ -174,6 +184,7 @@ table {
 .projectGif {
     max-height: 250px;
     max-width: 300px;
+    border: 1px solid grey;
 }
 
 .pdfViewer {
