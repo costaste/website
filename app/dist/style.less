@@ -14,8 +14,10 @@
 @card-effect: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 body {
+    // Have to use !important here to override any bootstrap defaults
     background-color: @bkgd-color !important;
     font-family: Roboto !important;
+    overflow-y: scroll !important; // helps make projects table not shift on expand
 }
 
 .navText {
@@ -63,7 +65,7 @@ footer {
     position: fixed;
     bottom: 0px;
     width: 100%;
-    background-color: wheat;
+    background-color: @header-background-color;
     max-height: 45px;
     box-shadow: 0px -10px 35px grey;
 }
