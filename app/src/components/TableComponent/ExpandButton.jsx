@@ -19,7 +19,6 @@ class ExpandButton extends Component {
     render() {
         const { rowId } = this.props;
         if (this.state.expanded) {
-            // plus/minus for expand/collapse (could abstract into a component, render img based on prop)
             const icon = <img title='Click to collapse' src={require('../../../assets/images/minus.png')} onClick={() => this.handleClick(rowId )} className='drawerButton' />;
             return <td id={rowId  + '-collapse-button'} className='buttonCell'>{icon}</td>;
         } else {

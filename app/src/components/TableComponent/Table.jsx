@@ -28,11 +28,9 @@ class Table extends Component {
       let cells = [];
       for (let col = 0; col < totalCols; col++) {
         let cellID = `cell${rowNum}-${col}`;
-        let cellType = (rowNum === 0 ? 'cellHeader' : 'cell');
-        // TODO use 'th' instead of 'td' for header row?
         rowNum === 0 ? 
-        cells.push(<td key={col} id={cellID} className={cellType} colSpan={matrix[rowNum][col].span}>{matrix[rowNum][col].value}</td>) :
-        cells.push(<td key={col} id={cellID} className={cellType}>{matrix[rowNum][col]}</td>);
+        cells.push(<th key={col} id={cellID} className='cellHeader' colSpan={matrix[rowNum][col].span}>{matrix[rowNum][col].value}</th>) :
+        cells.push(<td key={col} id={cellID} className='cell'>{matrix[rowNum][col]}</td>);
       }
 
       // 1st part of conditional is only relevant to expandable tables
