@@ -34,24 +34,6 @@ class Table extends Component {
         cells.push(<td key={col} id={cellID} className={cellType}>{matrix[rowNum][col]}</td>);
       }
 
-<<<<<<< Updated upstream
-      // All of this is only relevant to expandable tables...should prob refactor at some pt
-      if (isExpandable && rowNum !== 0 && this.isRowExpanded(rowID)) {
-
-        // plus/minus for expand/collapse
-        const icon = <img title='Click to collapse' src={require('../../../assets/images/minus.png')} onClick={() => this.handleClick(rowID)} className='drawerButton' />;
-        cells.push(<td id={rowID + '-collapse-button'} className='buttonCell'>{icon}</td>);
-
-      } else if (isExpandable && rowNum !== 0) {
-
-        const icon = <img title='Click to expand' src={require('../../../assets/images/plus.png')} onClick={() => this.handleClick(rowID)} className='drawerButton' />;
-        cells.push(<td id={rowID + '-expand-button'} className='buttonCell'>{icon}</td>);
-
-      }
-
-      rows.push(<tr key={rowNum} id={rowID}>{cells}</tr>);
-      if (isExpandable && rowID !== 'row0') {
-=======
       // 1st part of conditional is only relevant to expandable tables...should prob refactor at some pt
       if (isExpandable && rowNum !== 0 ) {
         if (this.isRowExpanded(rowID)) {
@@ -64,7 +46,6 @@ class Table extends Component {
         }
 
         rows.push(<tr className='tableRow' key={rowNum} id={rowID}>{cells}</tr>);
->>>>>>> Stashed changes
         const isExpanded = this.isRowExpanded(rowID);
         const detailRow = this.getDetailsRow(rowID, isExpanded);
         rows.push(detailRow);
