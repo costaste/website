@@ -28,6 +28,7 @@ class Table extends Component {
       let cells = [];
       for (let col = 0; col < totalCols; col++) {
         let cellID = `cell${rowNum}-${col}`;
+        // Decide if this is a header cell or not, then add cell to array
         rowNum === 0 ? 
         cells.push(<th key={col} id={cellID} className='cellHeader' colSpan={matrix[rowNum][col].span}>{matrix[rowNum][col].value}</th>) :
         cells.push(<td key={col} id={cellID} className='cell'>{matrix[rowNum][col]}</td>);
@@ -63,7 +64,6 @@ class Table extends Component {
       // Remove the newly collapsed row from the list by filtering against it
       this.setState({ expandedRowIds: this.state.expandedRowIds.filter(e => e !== rowId) });
     }
-    console.log(this.state);
   }
 
   isRowExpanded(rowId) {
