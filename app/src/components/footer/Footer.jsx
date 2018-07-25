@@ -5,7 +5,6 @@ class Footer extends Component {
     return (
       <footer className='footer'>
         <ul className='footerList'>
-          {/* <li className='navButton'>Contact Info</li>  */}
           <li className='navButton'>
             <img title='GitHub' src={require('../../../assets/images/github_icon.png')} onClick={() => window.open('https://github.com/costaste/')} className='footerListElem' />
           </li>
