@@ -7,6 +7,8 @@
 @bkgd-color: #DBDFE3; //darker off-white
 
 @table-border-color: black;
+@table-bkgd-color: white;
+@table-detail-bkgd-color: #bfc5cb;
 
 @header-background-color: #333333;
 @header-color: wheat;
@@ -16,18 +18,18 @@
 body {
     // Have to use !important here to override any bootstrap defaults
     background-color: @bkgd-color !important;
-    font-family: Roboto !important;
+    color: black !important;
     overflow-y: scroll !important; // helps make projects table not shift on expand
 }
 
 .navText {
     color: @header-color;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .navText-selected {
     color: black;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 header {
@@ -58,7 +60,7 @@ header {
 
 .navButton-selected {
 	&:extend(.navButton);
-	background-color: @bkgd-color;
+    background-color: @bkgd-color;
 }
 
 footer {
@@ -67,7 +69,6 @@ footer {
     width: 100%;
     background-color: @header-background-color;
     max-height: 45px;
-    box-shadow: 0px -10px 35px grey;
 }
 
 .footerList {
@@ -126,7 +127,7 @@ table {
 }
 .detailRow {
     border: 1px solid @table-border-color;
-    background-color: #bfc5cb;
+    background-color: @table-detail-bkgd-color;
 }
 
 .detailRow-hidden {
@@ -148,7 +149,7 @@ table {
 }
 
 .tableRow {
-    background-color: white;
+    background-color: @table-bkgd-color;
 }
 
 .cell {
