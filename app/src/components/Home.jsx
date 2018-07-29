@@ -5,9 +5,9 @@ class HomePage extends Component {
     return (
       <div class='primaryContainer'>
         <br/>
-        <h1>Hello World!</h1>
+        <h1 class='hello'>Hello World!</h1>
         <br/>
-        <img src={require('../../assets/images/placeholder.jpg')} className='profileImg'/>
+        <img src={require('../../assets/images/profile.jpg')} className='profileImg'/>
         <h3>I'm Stephen Costa, a computer science student studying at Northeastern University in Boston. </h3>
         <br/>
         <ul class='list'>
