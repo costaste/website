@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import DetailRow from './DetailRow';
+import ExpandButton from './ExpandButton';
+import { projectNames } from './tableConstants';
 
 class Table extends Component {
 
@@ -26,33 +28,24 @@ class Table extends Component {
       let cells = [];
       for (let col = 0; col < totalCols; col++) {
         let cellID = `cell${rowNum}-${col}`;
-        // TODO make class table description cells max-width ~1200px
-        let cellType = (rowNum === 0 ? 'cellHeader' : 'cell');
-        // TODO use 'th' instead of 'td' for header row?
+        // Decide if this is a header cell or not, then add cell to array
         rowNum === 0 ? 
-        cells.push(<td key={col} id={cellID} className={cellType} colSpan={matrix[rowNum][col].span}>{matrix[rowNum][col].value}</td>) :
-        cells.push(<td key={col} id={cellID} className={cellType}>{matrix[rowNum][col]}</td>);
+        cells.push(<th key={col} id={cellID} className='cellHeader' colSpan={matrix[rowNum][col].span}>{matrix[rowNum][col].value}</th>) :
+        cells.push(<td key={col} id={cellID} className='cell'>{matrix[rowNum][col]}</td>);
       }
 
-      // All of this is only relevant to expandable tables...should prob refactor at some pt
-      if (isExpandable && rowNum !== 0 && this.isRowExpanded(rowID)) {
+      // 1st part of conditional is only relevant to expandable tables
+      if (isExpandable && rowNum !== 0 ) {
+        cells.push(<ExpandButton toggle={this.handleClick} rowId={rowID} />);
 
-        // plus/minus for expand/collapse
-        const icon = <img title='Click to collapse' src={require('../../../assets/images/minus.png')} onClick={() => this.handleClick(rowID)} className='drawerButton' />;
-        cells.push(<td id={rowID + '-collapse-button'} className='buttonCell'>{icon}</td>);
-
-      } else if (isExpandable && rowNum !== 0) {
-
-        const icon = <img title='Click to expand' src={require('../../../assets/images/plus.png')} onClick={() => this.handleClick(rowID)} className='drawerButton' />;
-        cells.push(<td id={rowID + '-expand-button'} className='buttonCell'>{icon}</td>);
-
-      }
-
-      rows.push(<tr key={rowNum} id={rowID}>{cells}</tr>);
-      if (isExpandable && rowID !== 'row0') {
+        rows.push(<tr className='tableRow' key={rowNum} id={rowID}>{cells}</tr>);
         const isExpanded = this.isRowExpanded(rowID);
-        const detailRow = this.getDetailsRow(rowID, isExpanded);
+        const detailRow = this.getDetailsRow(rowNum, rowID, isExpanded);
         rows.push(detailRow);
+
+      } else {
+        // No expandable rows
+        rows.push(<tr className='tableRow' key={rowNum} id={rowID}>{cells}</tr>);
       }
     }
 
@@ -71,30 +64,14 @@ class Table extends Component {
       // Remove the newly collapsed row from the list by filtering against it
       this.setState({ expandedRowIds: this.state.expandedRowIds.filter(e => e !== rowId) });
     }
-    console.log(this.state);
   }
 
   isRowExpanded(rowId) {
     return _.includes(this.state.expandedRowIds, rowId);
   }
 
-  getDetailsRow(rowId, isExpanded) {
-    // TODO use this.props/tableConstants to get project
-    let proj = '';
-    switch (rowId) {
-      case 'row1':
-        proj = 'pipes';
-        break;
-      case 'row2':
-        proj = 'music';
-        break;
-      case 'row3':
-        proj = 'nush';
-        break;
-      case 'row4':
-        proj = 'tetris';
-        break;
-    }
+  getDetailsRow(rowNum, rowId, isExpanded) {
+    const proj = projectNames[rowNum - 1];
     return <DetailRow project={proj} rowId={rowId} shouldDisplay={isExpanded} />
   }
   
@@ -104,15 +81,11 @@ class Table extends Component {
 
     return (
       <div className={tableType}>
-        {/* <div className="row">
-          <div className="col s12 board"> */}
-            <table id="simple-board">
-              <tbody>
-                {allRows}
-              </tbody>
-            </table>
-          {/* </div>
-        </div> */}
+        <table>
+          <tbody>
+            {allRows}
+          </tbody>
+        </table>
       </div>        
     )
   }
