@@ -1,8 +1,4 @@
-- Projects page:
-    > Have a gif of each project in action
-    > Put all projects on public GitHub
-    > aspirations for future additions?
-- Add interests page
 - Find hosting
+- Add interests page
 - separate different component styles into different stylesheets
 - refactor dist directory (should probably have all files in dist be untracked by git)
