@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
 let i = 0;
+let underscore = false;
 const speed = 250;
 class Typewriter extends Component {
 
   constructor(props) {
     super(props);
     this.typeWriter = this.typeWriter.bind(this);
+    this.blinkCursor = this.blinkCursor.bind(this);
     this.state = {
       text: '_'
     }
@@ -15,6 +17,10 @@ class Typewriter extends Component {
   componentDidMount() {
     this.typeWriter();
   };
+
+  shouldComponentUpdate() {
+    return true;
+  }
 
   typeWriter() {
     const message = 'Hello World! ';
@@ -25,9 +31,22 @@ class Typewriter extends Component {
       setTimeout(this.typeWriter, speed);
     } else {
       i = 0;
-      setTimeout(this.typeWriter, speed * 10);
+      //this.blinkCursor();
     }
   };
+
+  blinkCursor() {
+    if (underscore) {
+      this.setState({ text: 'Hello World!_'});
+      console.log('1');
+    } else {
+      this.setState({ text: 'Hello World! '});
+      console.log('2');
+    }
+    underscore = !underscore;
+    setTimeout(this.blinkCursor, speed);
+    //{this.state.text.replace(/ /g, "\u00a0")}
+  }
 
   render() {
     return (
