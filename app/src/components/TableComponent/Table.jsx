@@ -38,7 +38,20 @@ class Table extends Component {
       if (isExpandable && rowNum !== 0 ) {
         cells.push(<ExpandButton toggle={this.handleClick} rowId={rowID} />);
 
-        rows.push(<tr className='tableRow' key={rowNum} id={rowID}>{cells}</tr>);
+
+        // plus/minus for expand/collapse
+        const icon = <img title='Click to collapse' src={require('../../../assets/images/minus.png')} onClick={() => this.handleClick(rowID)} className='drawerButton' />;
+        cells.push(<td id={rowID + '-collapse-button'} className='buttonCell'>{icon}</td>);
+
+      } else if (isExpandable && rowNum !== 0) {
+
+        const icon = <img title='Click to expand' src={require('../../../assets/images/plus.png')} onClick={() => this.handleClick(rowID)} className='drawerButton' />;
+        cells.push(<td id={rowID + '-expand-button'} className='buttonCell'>{icon}</td>);
+
+      }
+
+      rows.push(<tr className='tableRow' key={rowNum} id={rowID}>{cells}</tr>);
+      if (isExpandable && rowID !== 'row0') {
         const isExpanded = this.isRowExpanded(rowID);
         const detailRow = this.getDetailsRow(rowNum, rowID, isExpanded);
         rows.push(detailRow);

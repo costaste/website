@@ -1,16 +1,29 @@
-@bkgd-color: white;
+@bkgd-color: #DBDFE3; //darker off-white
+
+@table-border-color: black;
+@table-bkgd-color: white;
+@table-detail-bkgd-color: #bfc5cb;
+
+@header-background-color: #333333;
+@header-color: wheat;
+
+@card-effect: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 body {
-    // background-color: #473955;
-    background-color: #7EA6D7;
+    // Have to use !important here to override any bootstrap defaults
+    background-color: @bkgd-color !important;
+    color: black !important;
+    overflow-y: scroll !important; // helps make projects table not shift on expand
 }
 
 .navText {
-    color: white;
+    color: @header-color;
+    font-weight: 500;
 }
 
 .navText-selected {
     color: black;
+    font-weight: 500;
 }
 
 header {
@@ -18,11 +31,11 @@ header {
     position: fixed;
     top: 0;
     z-index: 10;
-	background-color: #333333;
+	background-color: @header-background-color;
 	width: 100%;
 	min-width: 475px;
 	height: 50px;
-	color: @bkgd-color;
+    color: @bkgd-color;
 }
 
 #headerButtons {
@@ -41,14 +54,14 @@ header {
 
 .navButton-selected {
 	&:extend(.navButton);
-	background-color: @bkgd-color;
+    background-color: @bkgd-color;
 }
 
 footer {
     position: fixed;
     bottom: 0px;
     width: 100%;
-    background-color: lightgrey;
+    background-color: @header-background-color;
     max-height: 45px;
 }
 
@@ -71,6 +84,17 @@ footer {
     padding-top: 9%;
 }
 
+.hello {
+    font-family: Consolas;
+    color: green;
+}
+
+.profileImg {
+    width: 250px;
+    border-radius: 25px;
+    box-shadow: @card-effect;
+}
+
 .list {
     font-size: 16px;
     list-style: none;
@@ -80,6 +104,7 @@ footer {
 
 table {
     width: 100%;
+    box-shadow: @card-effect;
 }
 
 .table {
@@ -89,22 +114,19 @@ table {
     margin-bottom: 10%;
     margin-left: auto;
     margin-right: auto;
-    // margin: auto;
 }
 
 .projTable {
 	&:extend(.table);
     font-size: 20px;
-    // width: 1280px;
 }
 .classTable {
 	&:extend(.table);
 	font-size: 16px;
-	// left: 10%;
 }
 .detailRow {
-    border: 1px solid black;
-    background-color: lightsteelblue;
+    border: 1px solid @table-border-color;
+    background-color: @table-detail-bkgd-color;
 }
 
 .detailRow-hidden {
@@ -125,13 +147,13 @@ table {
     font-size: 16px;
 }
 
-.row {
-    background-color: white;
+.tableRow {
+    background-color: @table-bkgd-color;
 }
 
 .cell {
 	padding: 10px;
-    border: 1px solid black;
+    border: 1px solid @table-border-color;
     max-width: 1000px;
     max-width: inherit;
     max-height: inherit;
@@ -139,8 +161,8 @@ table {
 .cellHeader {
     &:extend(.cell);
     font-weight: bold;
-    background-color: cornflowerblue;
-    // background-color: royalblue;
+    background-color: @header-background-color;
+    color: @header-color;
 }
 
 .buttonCell {
@@ -166,8 +188,10 @@ table {
 .projectGif {
     max-height: 250px;
     max-width: 300px;
+    border: 1px solid grey;
 }
 
 .pdfViewer {
     margin-bottom: 10%;
+    box-shadow: @card-effect;
 }

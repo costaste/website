@@ -14,9 +14,6 @@ class Footer extends Component {
           <li className='navButton'>
             <img title='University Email' src={require('../../../assets/images/email.png')} onClick={() => window.open('mailto:costa.ste@husky.neu.edu')} className='footerListElem' />
           </li>
-          <li className='navButton'>
-            <img title='Personal Email' src={require('../../../assets/images/email.png')} onClick={() => window.open('mailto:st3ph3n24@gmail.com')} className='footerListElem' />
-          </li>
         </ul>
       </footer>
     )
