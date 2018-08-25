@@ -34,17 +34,17 @@ class DetailRow extends Component {
       detailList.push(<li>{data.details[i]}</li>);
     }
 
-  return (
-  <div className='detailCell'>
-    <div className='detailDiv'>
-      <h3>Technologies</h3>
-      <ul className='detailList'>{techList}</ul>
-    </div>
-    <div className='detailDiv'>
-      <h3>Details</h3>
-      <ul className='detailList'>{detailList}</ul>
-    </div>
-  </div>);
+    return (
+    <div className='detailCell'>
+      <div className='detailDiv'>
+        <h3>Technologies</h3>
+        <ul className='detailList'>{techList}</ul>
+      </div>
+      <div className='detailDiv'>
+        <h3>Details</h3>
+        <ul className='detailList'>{detailList}</ul>
+      </div>
+    </div>);
   }
 
   render() {

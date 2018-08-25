@@ -21,6 +21,13 @@ const projectMatrix = [
     tetris,
 ];
 
+const projectNames = [
+    'pipes',
+    'music',
+    'nush',
+    'tetris',
+];
+
 // Project Details ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 const pipeTech = ['SDL graphics', 'SDL mixer for audio', 'SDL timer for tick events', 'Smart pointers (C++11)'];
@@ -91,4 +98,12 @@ const classMatrix = [
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-export { projectMatrix, classMatrix, pipeDetailedInfo, musicDetailedInfo, nushDetailedInfo, tetrisDetailedInfo };
+export { 
+    projectNames, 
+    projectMatrix, 
+    classMatrix, 
+    pipeDetailedInfo, 
+    musicDetailedInfo, 
+    nushDetailedInfo, 
+    tetrisDetailedInfo 
+};
