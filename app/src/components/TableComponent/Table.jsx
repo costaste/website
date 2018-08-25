@@ -36,29 +36,17 @@ class Table extends Component {
 
       // 1st part of conditional is only relevant to expandable tables
       if (isExpandable && rowNum !== 0 ) {
-        cells.push(<ExpandButton toggle={this.handleClick} rowId={rowID} />);
-
-
         // plus/minus for expand/collapse
-        const icon = <img title='Click to collapse' src={require('../../../assets/images/minus.png')} onClick={() => this.handleClick(rowID)} className='drawerButton' />;
-        cells.push(<td id={rowID + '-collapse-button'} className='buttonCell'>{icon}</td>);
-
-      } else if (isExpandable && rowNum !== 0) {
-
-        const icon = <img title='Click to expand' src={require('../../../assets/images/plus.png')} onClick={() => this.handleClick(rowID)} className='drawerButton' />;
-        cells.push(<td id={rowID + '-expand-button'} className='buttonCell'>{icon}</td>);
-
+        cells.push(<ExpandButton toggle={this.handleClick} rowId={rowID} />);
       }
 
       rows.push(<tr className='tableRow' key={rowNum} id={rowID}>{cells}</tr>);
+
+      // Add expanded row if necessary
       if (isExpandable && rowID !== 'row0') {
         const isExpanded = this.isRowExpanded(rowID);
         const detailRow = this.getDetailsRow(rowNum, rowID, isExpanded);
         rows.push(detailRow);
-
-      } else {
-        // No expandable rows
-        rows.push(<tr className='tableRow' key={rowNum} id={rowID}>{cells}</tr>);
       }
     }
 

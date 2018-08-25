@@ -28,6 +28,7 @@ const projectNames = [
     'music',
     'nush',
     'tetris',
+    'web',
 ];
 
 // Project Details ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
