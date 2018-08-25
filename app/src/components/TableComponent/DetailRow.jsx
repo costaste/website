@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { pipeDetailedInfo, musicDetailedInfo, nushDetailedInfo, tetrisDetailedInfo } from './tableConstants';
+import { pipeDetailedInfo, musicDetailedInfo, nushDetailedInfo, tetrisDetailedInfo, webDetailedInfo } from './tableConstants';
 
 class DetailRow extends Component {
 
@@ -17,6 +17,9 @@ class DetailRow extends Component {
         break;
       case 'tetris':
         return tetrisDetailedInfo;
+        break;
+      case 'web':
+        return webDetailedInfo;
         break;
       default: 
         return null;
