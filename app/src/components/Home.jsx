@@ -12,9 +12,9 @@ class HomePage extends Component {
         <h3>I'm Stephen Costa, a computer science student studying at Northeastern University in Boston. </h3>
         <br/>
         <ul class='list'>
-          <li>Currently I'm finishing my second year of schooling at NEU.</li>
+          <li>Currently I'm a junior at NEU.</li>
           <br/>
-          <li>Coincidentally, I'm also looking for my second co-op!</li>
+          <li>I'm also now looking for my second co-op!</li>
           <br/>
           <li>I just finished my first co-op at Curriculum Associates, which was a great experience. I got to learn a lot about web development and use technologies with which I previously had no experience. Everyone who works at CA is also extremely welcoming and knowledgeable, which gave me a great first step into the industry. I couldn't be more excited about my next co-op.</li>
           <br/>
