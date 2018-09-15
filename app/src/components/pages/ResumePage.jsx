@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import pdfjsLib from 'pdfjs-dist';
 
 class ResumePage extends Component {
 
