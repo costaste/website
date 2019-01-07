@@ -6,7 +6,7 @@ class ResumePage extends Component {
         return (
           <div class='primaryContainer'>
             <h3>Resume</h3>
-            <iframe width="800" height="900" className="pdfViewer" src="https://www.docdroid.net/CWc5gro/resume2018.pdf" frameborder="0" allowtransparency allowfullscreen></iframe>
+            <iframe width="800" height="900" className="pdfViewer" src="https://docdro.id/ICLhPHZ/resume2018.pdf" frameborder="0" allowtransparency allowfullscreen></iframe>
           </div>
         )
     }
