@@ -12,11 +12,11 @@ class HomePage extends Component {
         <h3>I'm Stephen Costa, a computer science student studying at Northeastern University in Boston. </h3>
         <br/>
         <ul class='list'>
-          <li>Currently I'm a junior at NEU.</li>
+          <li>Currently I'm a senior at NEU.</li>
           <br/>
-          <li>I'm also now looking for my second co-op!</li>
+          <li>I've also just started my second co-op! After I get into the swing of things I'll update my site with more info.</li>
           <br/>
-          <li>I just finished my first co-op at Curriculum Associates, which was a great experience. I got to learn a lot about web development and use technologies with which I previously had no experience. Everyone who works at CA is also extremely welcoming and knowledgeable, which gave me a great first step into the industry. I couldn't be more excited about my next co-op.</li>
+          <li>I finished my first co-op, at <a href='https://www.curriculumassociates.com/'>Curriculum Associates</a>, in July 2018. It was a great experience. I got to learn a lot about web development and use technologies with which I previously had no experience. Everyone who works at CA is also extremely welcoming and knowledgeable, which gave me a great first step into the industry.</li>
           <br/>
           <li>In regards to the more personal side of my life, I like to consider myself a pretty laid-back guy. I love to read: Game of Thrones, Star Wars books, books about technology, comics, and the usual geeky stuff. I also enjoy going outside; going for walks/running in the summer, snowboarding in the winter. Certain video games have a tendency to vigorously consume my free time as well.</li>
           <li>If you think I sound like a pretty cool guy definitely feel free to hit me up on email or LinkedIn and maybe we can chat. (Links down below!)</li>
