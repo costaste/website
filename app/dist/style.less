@@ -31,29 +31,29 @@ header {
     position: fixed;
     top: 0;
     z-index: 10;
-	background-color: @header-background-color;
-	width: 100%;
-	min-width: 475px;
-	height: 50px;
+    background-color: @header-background-color;
+    width: 100%;
+    min-width: 475px;
+    height: 50px;
     color: @bkgd-color;
 }
 
 #headerButtons {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .navButton {
-	display: inline-block;
-	padding-left: 35px;
-	padding-top: 15px;
-	padding-right: 35px;
+    display: inline-block;
+    padding-left: 35px;
+    padding-top: 15px;
+    padding-right: 35px;
     padding-bottom: 15px;
 }
 
 .navButton-selected {
-	&:extend(.navButton);
+    &:extend(.navButton);
     background-color: @bkgd-color;
 }
 
@@ -108,8 +108,8 @@ table {
 }
 
 .table {
-	text-align: left;
-	position: relative;
+    text-align: left;
+    position: relative;
     width: 80%;
     margin-bottom: 10%;
     margin-left: auto;
@@ -117,12 +117,12 @@ table {
 }
 
 .projTable {
-	&:extend(.table);
+    &:extend(.table);
     font-size: 20px;
 }
 .classTable {
-	&:extend(.table);
-	font-size: 16px;
+    &:extend(.table);
+    font-size: 16px;
 }
 .detailRow {
     border: 1px solid @table-border-color;
@@ -152,7 +152,7 @@ table {
 }
 
 .cell {
-	padding: 10px;
+    padding: 10px;
     border: 1px solid @table-border-color;
     max-width: 1000px;
     max-width: inherit;
