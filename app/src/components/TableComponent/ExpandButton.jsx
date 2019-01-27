@@ -12,8 +12,10 @@ class ExpandButton extends Component {
 
     handleClick() {
         const { rowId , toggle }  = this.props;
-        this.setState({ expanded: !this.state.expanded });
-        toggle(rowId );
+	this.setState(prevState => ({
+		expanded: !prevState.expanded
+	}))
+        toggle(rowId);
     }
 
     render() {

@@ -59,11 +59,16 @@ class Table extends Component {
     if (rowId === 'row0' || !isExpandable) return;
     if (!this.isRowExpanded(rowId)) {
       // Add the row to the list of already expanded rows
-      this.state.expandedRowIds.push(rowId);
-      this.setState({ expandedRowIds: this.state.expandedRowIds });
+      this.setState(prevState => ({
+        expandedRowIds: prevState.expandedRowIds
+          .filter((currRowId) => (currRowId !== rowId))
+          .concat(rowId)
+      }));
     } else {
       // Remove the newly collapsed row from the list by filtering against it
-      this.setState({ expandedRowIds: this.state.expandedRowIds.filter(e => e !== rowId) });
+      this.setState(prevState => ({
+        expandedRowIds: prevState.expandedRowIds.filter(e => e !== rowId)
+      }));
     }
   }
 
