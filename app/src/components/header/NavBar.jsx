@@ -5,8 +5,8 @@ class NavBar extends Component {
 
     getSelected() {
         const currPath = window.location.pathname;
-        var home = 'navButton', projects = 'navButton', classes = 'navButton', resume = 'navButton';
-        var homeText = 'navText', projText = 'navText', classText = 'navText', resText = 'navText';
+        let home = 'navButton', projects = 'navButton', classes = 'navButton', resume = 'navButton';
+        let homeText = 'navText', projText = 'navText', classText = 'navText', resText = 'navText';
 
         switch(currPath) {
             case '/':

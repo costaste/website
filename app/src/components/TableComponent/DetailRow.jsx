@@ -30,10 +30,10 @@ class DetailRow extends Component {
     const techList = [];
     const detailList = [];
 
-    for (var i = 0; i < data.tech.length; i++) {
+    for (let i = 0; i < data.tech.length; i++) {
       techList.push(<li>{data.tech[i]}</li>);
     }
-    for (var i = 0; i < data.details.length; i++) {
+    for (let i = 0; i < data.details.length; i++) {
       detailList.push(<li>{data.details[i]}</li>);
     }
 
