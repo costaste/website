@@ -53,7 +53,7 @@ class DetailRow extends Component {
   render() {
     const { project, rowId, shouldDisplay } = this.props;
     const data = this.getData(project);
-    let cells = [];
+    const cells = [];
 
     // Include a gif of project in action
     const gif = <img src={data.gif} className='projectGif'/>;
@@ -73,9 +73,8 @@ class DetailRow extends Component {
     cells.push(infoCell);
     cells.push(gitLink);
 
-    let styleClass;
-    shouldDisplay ? styleClass = 'detailRow' : styleClass = 'detailRow-hidden';
-    return <tr id={rowId + '-details'} className={styleClass}>{cells}</tr>
+    const styleClass = shouldDisplay ? 'detailRow' : 'detailRow-hidden';
+    return <tr id={rowId + '-details'} className={styleClass}>{cells}</tr>;
   }
 }
 

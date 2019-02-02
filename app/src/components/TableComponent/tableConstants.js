@@ -6,7 +6,7 @@
 // Project Table ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // const projectHeaders = ['Project Name', 'Language', 'Description', ''];
-const projectHeaders = [{value: 'Project Name', span: 1}, {value: 'Language', span: 1}, {value: 'Description', span: 2}];
+const projectHeaders = [{value: 'Project Name'}, {value: 'Language'}, {value: 'Description', span: 2}];
 
 const pipe = ['Pipe Game', 'C++', 'A 2D time-based puzzle game'];
 const music = ['Music Editor', 'Java', 'Program to create, load, display, and play proprietary music files'];
@@ -86,7 +86,7 @@ const webDetailedInfo = {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // Classes Table ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const classHeaders = [{span: 1, value: 'Class'}, {span: 1, value: 'Primary Language'}, {span: 1, value: 'Description'}];
+const classHeaders = [{value: 'Class'}, {value: 'Primary Language'}, {value: 'Description'}];
 
 const ood = ['Object Oriented Design', 'Java',     'Presents a comparative approach to object-oriented programming and design. Discusses the concepts of object, class, meta-class, message, method, inheritance, and genericity. Reviews forms of polymorphism in object-oriented languages. Contrasts the use of inheritance and composition as dual techniques for software reuse: forwarding vs. delegation and subclassing vs. subtyping. Fosters a deeper understanding of the principles of object-oriented programming and design including software components, object-oriented design patterns, and the use of graphical design notations such as UML (unified modeling language). Basic concepts in object-oriented design are illustrated with case studies in application frameworks and by writing programs in one or more object-oriented languages.'];
 const algo = ['Algorithms & Data', 'Java/Psuedocode',     'Introduces the basic principles and techniques for the design, analysis, and implementation of efficient algorithms and data representations. Discusses asymptotic analysis and formal methods for establishing the correctness of algorithms. Considers divide-and-conquer algorithms, graph traversal algorithms, and optimization techniques. Introduces information theory and covers the fundamental structures for representing data. Examines flat and hierarchical representations, dynamic data representations, and data compression. Concludes with a discussion of the relationship of the topics in this course to complexity theory and the notion of the hardness of problems.'];

@@ -11,27 +11,29 @@ class Table extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       expandedRowIds: []
-    }
+    };
   }
 
   // Table for ProjectsPage
   createRows(matrix) {
     const { isExpandable } = this.props;
 
-    let totalRows = matrix.length;
-    let totalCols = matrix[0].length;
+    const totalRows = matrix.length;
+    const totalCols = matrix[0].length;
 
     // Build the table
-    let rows = [];
+    const rows = [];
     for (let rowNum = 0; rowNum < totalRows; rowNum++) {
-      let rowID = `row${rowNum}`;
-      let cells = [];
+      const rowID = `row${rowNum}`;
+      const cells = [];
       for (let col = 0; col < totalCols; col++) {
-        let cellID = `cell${rowNum}-${col}`;
+        const cellID = `cell${rowNum}-${col}`;
         // Decide if this is a header cell or not, then add cell to array
-        rowNum === 0 ? 
-        cells.push(<th key={col} id={cellID} className='cellHeader' colSpan={matrix[rowNum][col].span}>{matrix[rowNum][col].value}</th>) :
-        cells.push(<td key={col} id={cellID} className='cell'>{matrix[rowNum][col]}</td>);
+        if (rowNum === 0) {
+          cells.push(<th key={col} id={cellID} className='cellHeader' colSpan={matrix[rowNum][col].span || 1}>{matrix[rowNum][col].value}</th>);
+        } else {
+          cells.push(<td key={col} id={cellID} className='cell'>{matrix[rowNum][col]}</td>);
+        }
       }
 
       // 1st part of conditional is only relevant to expandable tables
