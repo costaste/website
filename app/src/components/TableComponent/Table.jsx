@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 import DetailRow from './DetailRow';
 import ExpandButton from './ExpandButton';
 import { projectNames } from './tableConstants';
@@ -75,7 +74,7 @@ class Table extends Component {
   }
 
   isRowExpanded(rowId) {
-    return _.includes(this.state.expandedRowIds, rowId);
+    return this.state.expandedRowIds.indexOf(rowId) !== -1;
   }
 
   getDetailsRow(rowNum, rowId, isExpanded) {
