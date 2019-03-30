@@ -38,8 +38,8 @@ class Table extends Component {
               colSpan={matrix[rowNum][col].span || 1}
             >
               {matrix[rowNum][col].value}
-            </th>)
-          ;
+            </th>
+          );
         } else {
           cells.push(
             <td
