@@ -30,9 +30,26 @@ class Table extends Component {
         const cellID = `cell${rowNum}-${col}`;
         // Decide if this is a header cell or not, then add cell to array
         if (rowNum === 0) {
-          cells.push(<th key={col} id={cellID} className='cellHeader' colSpan={matrix[rowNum][col].span || 1}>{matrix[rowNum][col].value}</th>);
+          cells.push(
+            <th
+              key={col}
+              id={cellID}
+              className='cellHeader'
+              colSpan={matrix[rowNum][col].span || 1}
+            >
+              {matrix[rowNum][col].value}
+            </th>)
+          ;
         } else {
-          cells.push(<td key={col} id={cellID} className='cell'>{matrix[rowNum][col]}</td>);
+          cells.push(
+            <td
+              key={col}
+              id={cellID}
+              className='cell'
+            >
+              {matrix[rowNum][col]}
+            </td>
+          );
         }
       }
 
@@ -42,7 +59,15 @@ class Table extends Component {
         cells.push(<ExpandButton toggle={this.handleClick} rowId={rowID} />);
       }
 
-      rows.push(<tr className='tableRow' key={rowNum} id={rowID}>{cells}</tr>);
+      rows.push(
+        <tr
+          className='tableRow'
+          key={rowNum}
+          id={rowID}
+        >
+          {cells}
+        </tr>
+      );
 
       // Add expanded row if necessary
       if (isExpandable && rowID !== 'row0') {

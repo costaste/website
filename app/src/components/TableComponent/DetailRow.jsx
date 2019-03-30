@@ -65,7 +65,11 @@ class DetailRow extends Component {
 
     // Add link to repo for project
     const gitLink = <td className='buttonCell'>
-      <img title='View on GitHub' src={require('../../../assets/images/github_icon_black.png')} onClick={() => window.open(data.gitUrl)} className='gitLinkTable' />
+      <img 
+        title='View on GitHub'
+        src={require('../../../assets/images/github_icon_black.png')}
+        onClick={() => window.open(data.gitUrl)}
+        className='gitLinkTable button' />
     </td>;
 
     // Add td elems to cell list and build row
