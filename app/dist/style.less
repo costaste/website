@@ -89,10 +89,18 @@ footer {
     color: green;
 }
 
+@keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}
+
 .profileImg {
     width: 250px;
     border-radius: 25px;
     box-shadow: @card-effect;
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeIn ease-in 1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
 }
 
 .list {
@@ -151,6 +159,14 @@ table {
     background-color: @table-bkgd-color;
 }
 
+.tableRow:hover {
+    background-color: @table-detail-bkgd-color;
+    transition: 250ms ease;
+    -webkit-transition: 250ms ease;
+    -moz-transition: 250ms ease;
+    -o-transition: 250ms ease;
+}
+
 .cell {
     padding: 10px;
     border: 1px solid @table-border-color;
@@ -169,6 +185,10 @@ table {
     &:extend(.cell);
     text-align: center;
     padding: 0px;
+}
+
+.button, .footerListElem {
+    cursor: pointer;
 }
 
 .icon(@size: 30px) {
