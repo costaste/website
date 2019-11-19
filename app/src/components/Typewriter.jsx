@@ -7,20 +7,26 @@ class Typewriter extends Component {
     this.typeWriter = this.typeWriter.bind(this);
     this.blinkCursor = this.blinkCursor.bind(this);
     this.message = 'Hello World!';
-    this.speed = 250;
+    this.currentInterval = null;
     this.state = {
       text: '_',
       underscore: true,
-      index: 0
+      index: 0,
+      speed: 250
     }
   }
 
   componentDidMount() {
-    window.setInterval(this.typeWriter, this.speed);
+    this.currentInterval = window.setInterval(this.typeWriter, this.state.speed);
   };
 
   componentWillUnmount() {
-    window.clearInterval(this.typeWriter);
+    window.clearInterval(this.currentInterval);
+  }
+
+  startBlinkCursor() {
+    window.clearInterval(this.currentInterval);
+    this.currentInterval = window.setInterval(this.blinkCursor, this.state.speed);
   }
 
   typeWriter() {
@@ -34,7 +40,12 @@ class Typewriter extends Component {
         }
       ));
     } else {
-      this.blinkCursor();
+      this.setState(
+        {
+          speed: 500
+        },
+        this.startBlinkCursor
+      );
     }
   };
 
