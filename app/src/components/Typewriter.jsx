@@ -1,51 +1,71 @@
 import React, { Component } from 'react';
 
-let i = 0;
-let underscore = false;
-const speed = 250;
 class Typewriter extends Component {
 
   constructor(props) {
     super(props);
     this.typeWriter = this.typeWriter.bind(this);
     this.blinkCursor = this.blinkCursor.bind(this);
+    this.message = 'Hello World!';
+    this.currentInterval = null;
     this.state = {
-      text: '_'
+      text: '_',
+      underscore: true,
+      index: 0,
+      speed: 250
     }
   }
 
   componentDidMount() {
-    this.typeWriter();
+    this.currentInterval = window.setInterval(this.typeWriter, this.state.speed);
   };
 
-  shouldComponentUpdate() {
-    return true;
+  componentWillUnmount() {
+    window.clearInterval(this.currentInterval);
+  }
+
+  startBlinkCursor() {
+    window.clearInterval(this.currentInterval);
+    this.currentInterval = window.setInterval(this.blinkCursor, this.state.speed);
   }
 
   typeWriter() {
-    const message = 'Hello World! ';
-    if (i < message.length) {
-      var newText = message.substring(0, i);
-      this.setState({ text: newText + '_' });
-      i++;
-      setTimeout(this.typeWriter, speed);
+    const { index } = this.state;
+    if (index <= this.message.length) {
+      var newText = this.message.substring(0, index);
+      this.setState((prevState) => (
+        {
+          index: prevState.index + 1,
+          text: newText + '_'
+        }
+      ));
     } else {
-      i = 0;
-      //this.blinkCursor();
+      this.setState(
+        {
+          speed: 500
+        },
+        this.startBlinkCursor
+      );
     }
   };
 
   blinkCursor() {
+    const { underscore } = this.state;
     if (underscore) {
-      this.setState({ text: 'Hello World!_'});
-      console.log('1');
+      this.setState(
+        {
+          text: `${this.message}_`,
+          underscore: false
+        }
+      );
     } else {
-      this.setState({ text: 'Hello World! '});
-      console.log('2');
+      this.setState(
+        {
+          text: `${this.message}${String.fromCharCode(160)}`,
+          underscore: true
+        }
+      );
     }
-    underscore = !underscore;
-    setTimeout(this.blinkCursor, speed);
-    //{this.state.text.replace(/ /g, "\u00a0")}
   }
 
   render() {
