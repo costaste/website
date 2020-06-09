@@ -51,6 +51,8 @@ class Typewriter extends Component {
 
   blinkCursor() {
     const { underscore } = this.state;
+    console.log('blink');
+    console.log(underscore);
     if (underscore) {
       this.setState(
         {
