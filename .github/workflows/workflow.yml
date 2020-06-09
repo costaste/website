@@ -18,4 +18,4 @@ jobs:
     - name: Deploy to S3
       if: github.ref == 'refs/heads/master'
       shell: bash
-      run: ls && pwd && aws s3 sync app/dist/ s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --follow-symlinks --delete
+      run: ls && pwd && aws s3 sync ./app/dist/ s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --follow-symlinks --delete
