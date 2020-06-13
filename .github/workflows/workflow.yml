@@ -22,7 +22,7 @@ jobs:
         node-version: '12.x'
     - name: Deploy to S3
       shell: bash
-    - run: |
+      run: |
         npm ci
         npm run build
         aws s3 cp ./app/dist/ s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --follow-symlinks --recursive
