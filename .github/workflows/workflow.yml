@@ -4,23 +4,10 @@ on:
     branches:
       - master
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x]
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run build --if-present
   deploy:
     runs-on: ubuntu-latest
+    node-version: 12.x
+
     steps:
     - name: Configure AWS credentials
       if: github.ref == 'refs/heads/master'
@@ -30,10 +17,12 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
     - name: Deploy to S3
       if: github.ref == 'refs/heads/master'
       shell: bash
-      run: |
+    - run: npm install
+    - run: npm run build --if-present
+    - run: |
         aws s3 cp ./app/dist/ s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --follow-symlinks --recursive
         aws s3 sync ./app/dist/ s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --follow-symlinks --exact-timestamps --delete
