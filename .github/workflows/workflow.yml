@@ -20,7 +20,7 @@ jobs:
     - name: Deploy to S3
       shell: bash
     - run: npm install
-    - run: npm run build --if-present
+    - run: npm run build
     - run: |
         aws s3 cp ./app/dist/ s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --follow-symlinks --recursive
         aws s3 sync ./app/dist/ s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --follow-symlinks --exact-timestamps --delete
