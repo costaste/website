@@ -6,7 +6,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    node-version: 12.x
 
     steps:
     - name: Configure AWS credentials
@@ -17,10 +16,14 @@ jobs:
         aws-region: us-east-1
 
     - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
     - name: Deploy to S3
       shell: bash
     - run: |
-        npm install
+        npm ci
         npm run build
         aws s3 cp ./app/dist/ s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --follow-symlinks --recursive
         aws s3 sync ./app/dist/ s3://${{ secrets.AWS_S3_BUCKET }} --acl public-read --follow-symlinks --exact-timestamps --delete
